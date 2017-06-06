@@ -1,0 +1,12 @@
+# Uncomment this line to define a global platform for your project
+# run: pod install --no-repo-update
+platform :ios, '8.0'
+# 工程不显示任何警告
+inhibit_all_warnings!
+
+target 'RYDemo' do
+
+pod  'RYLabelCollection'
+pod  'SDWebImage'
+
+end

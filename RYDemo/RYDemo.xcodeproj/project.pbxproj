@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15435A64DC5F3478AEFC3969 /* libPods-RYDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 871881E9B4F2731CE2A23EA7 /* libPods-RYDemo.a */; };
+		A44C8A301EDFEF1B0010FC05 /* RYImageBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C8A271EDFEF1B0010FC05 /* RYImageBrowser.m */; };
+		A44C8A311EDFEF1B0010FC05 /* RYImageBrowserInnerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C8A291EDFEF1B0010FC05 /* RYImageBrowserInnerController.m */; };
+		A44C8A321EDFEF1B0010FC05 /* RYImageBrowserPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C8A2B1EDFEF1B0010FC05 /* RYImageBrowserPageController.m */; };
+		A44C8A331EDFEF1B0010FC05 /* RYImageBrowserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C8A2D1EDFEF1B0010FC05 /* RYImageBrowserScrollView.m */; };
+		A44C8A341EDFEF1B0010FC05 /* RYImageBrowserTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C8A2F1EDFEF1B0010FC05 /* RYImageBrowserTransitionAnimator.m */; };
+		A495BE9E1EDFC1220007DE3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A495BE9D1EDFC1220007DE3D /* main.m */; };
+		A495BEA11EDFC1220007DE3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A495BEA01EDFC1220007DE3D /* AppDelegate.m */; };
+		A495BEA41EDFC1220007DE3D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A495BEA31EDFC1220007DE3D /* ViewController.m */; };
+		A495BEA71EDFC1220007DE3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A495BEA51EDFC1220007DE3D /* Main.storyboard */; };
+		A495BEA91EDFC1220007DE3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A495BEA81EDFC1220007DE3D /* Assets.xcassets */; };
+		A495BEAC1EDFC1220007DE3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A495BEAA1EDFC1220007DE3D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		871881E9B4F2731CE2A23EA7 /* libPods-RYDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RYDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A44C8A261EDFEF1B0010FC05 /* RYImageBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImageBrowser.h; sourceTree = "<group>"; };
+		A44C8A271EDFEF1B0010FC05 /* RYImageBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImageBrowser.m; sourceTree = "<group>"; };
+		A44C8A281EDFEF1B0010FC05 /* RYImageBrowserInnerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImageBrowserInnerController.h; sourceTree = "<group>"; };
+		A44C8A291EDFEF1B0010FC05 /* RYImageBrowserInnerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImageBrowserInnerController.m; sourceTree = "<group>"; };
+		A44C8A2A1EDFEF1B0010FC05 /* RYImageBrowserPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImageBrowserPageController.h; sourceTree = "<group>"; };
+		A44C8A2B1EDFEF1B0010FC05 /* RYImageBrowserPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImageBrowserPageController.m; sourceTree = "<group>"; };
+		A44C8A2C1EDFEF1B0010FC05 /* RYImageBrowserScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImageBrowserScrollView.h; sourceTree = "<group>"; };
+		A44C8A2D1EDFEF1B0010FC05 /* RYImageBrowserScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImageBrowserScrollView.m; sourceTree = "<group>"; };
+		A44C8A2E1EDFEF1B0010FC05 /* RYImageBrowserTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYImageBrowserTransitionAnimator.h; sourceTree = "<group>"; };
+		A44C8A2F1EDFEF1B0010FC05 /* RYImageBrowserTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYImageBrowserTransitionAnimator.m; sourceTree = "<group>"; };
+		A495BE991EDFC1220007DE3D /* RYDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RYDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A495BE9D1EDFC1220007DE3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A495BE9F1EDFC1220007DE3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A495BEA01EDFC1220007DE3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A495BEA21EDFC1220007DE3D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A495BEA31EDFC1220007DE3D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A495BEA61EDFC1220007DE3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A495BEA81EDFC1220007DE3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A495BEAB1EDFC1220007DE3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A495BEAD1EDFC1230007DE3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAF1EDFA197C79852628665D /* Pods-RYDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RYDemo/Pods-RYDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		DF195E40796EF9520EF82640 /* Pods-RYDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RYDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RYDemo/Pods-RYDemo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A495BE961EDFC1220007DE3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15435A64DC5F3478AEFC3969 /* libPods-RYDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A44C8A251EDFEF1B0010FC05 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A44C8A261EDFEF1B0010FC05 /* RYImageBrowser.h */,
+				A44C8A271EDFEF1B0010FC05 /* RYImageBrowser.m */,
+				A44C8A281EDFEF1B0010FC05 /* RYImageBrowserInnerController.h */,
+				A44C8A291EDFEF1B0010FC05 /* RYImageBrowserInnerController.m */,
+				A44C8A2A1EDFEF1B0010FC05 /* RYImageBrowserPageController.h */,
+				A44C8A2B1EDFEF1B0010FC05 /* RYImageBrowserPageController.m */,
+				A44C8A2C1EDFEF1B0010FC05 /* RYImageBrowserScrollView.h */,
+				A44C8A2D1EDFEF1B0010FC05 /* RYImageBrowserScrollView.m */,
+				A44C8A2E1EDFEF1B0010FC05 /* RYImageBrowserTransitionAnimator.h */,
+				A44C8A2F1EDFEF1B0010FC05 /* RYImageBrowserTransitionAnimator.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A495BE901EDFC1220007DE3D = {
+			isa = PBXGroup;
+			children = (
+				A495BE9B1EDFC1220007DE3D /* RYDemo */,
+				A495BE9A1EDFC1220007DE3D /* Products */,
+				F864C3EA1FC9E79BC3FB9A60 /* Pods */,
+				A902E8F85A77494BAADA2635 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A495BE9A1EDFC1220007DE3D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A495BE991EDFC1220007DE3D /* RYDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A495BE9B1EDFC1220007DE3D /* RYDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A44C8A251EDFEF1B0010FC05 /* Classes */,
+				A495BE9F1EDFC1220007DE3D /* AppDelegate.h */,
+				A495BEA01EDFC1220007DE3D /* AppDelegate.m */,
+				A495BEA21EDFC1220007DE3D /* ViewController.h */,
+				A495BEA31EDFC1220007DE3D /* ViewController.m */,
+				A495BEA51EDFC1220007DE3D /* Main.storyboard */,
+				A495BEA81EDFC1220007DE3D /* Assets.xcassets */,
+				A495BEAA1EDFC1220007DE3D /* LaunchScreen.storyboard */,
+				A495BEAD1EDFC1230007DE3D /* Info.plist */,
+				A495BE9C1EDFC1220007DE3D /* Supporting Files */,
+			);
+			path = RYDemo;
+			sourceTree = "<group>";
+		};
+		A495BE9C1EDFC1220007DE3D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A495BE9D1EDFC1220007DE3D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A902E8F85A77494BAADA2635 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				871881E9B4F2731CE2A23EA7 /* libPods-RYDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F864C3EA1FC9E79BC3FB9A60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BAF1EDFA197C79852628665D /* Pods-RYDemo.debug.xcconfig */,
+				DF195E40796EF9520EF82640 /* Pods-RYDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A495BE981EDFC1220007DE3D /* RYDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A495BEB01EDFC1230007DE3D /* Build configuration list for PBXNativeTarget "RYDemo" */;
+			buildPhases = (
+				7EEA0DB03DA392BADCCA1633 /* [CP] Check Pods Manifest.lock */,
+				A495BE951EDFC1220007DE3D /* Sources */,
+				A495BE961EDFC1220007DE3D /* Frameworks */,
+				A495BE971EDFC1220007DE3D /* Resources */,
+				5EAF8D46FEF37634D2C712DE /* [CP] Embed Pods Frameworks */,
+				FB97AE49015A374690895C1B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RYDemo;
+			productName = RYDemo;
+			productReference = A495BE991EDFC1220007DE3D /* RYDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A495BE911EDFC1220007DE3D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = RongqingWang;
+				TargetAttributes = {
+					A495BE981EDFC1220007DE3D = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = DE9LJ533VH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A495BE941EDFC1220007DE3D /* Build configuration list for PBXProject "RYDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A495BE901EDFC1220007DE3D;
+			productRefGroup = A495BE9A1EDFC1220007DE3D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A495BE981EDFC1220007DE3D /* RYDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A495BE971EDFC1220007DE3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A495BEAC1EDFC1220007DE3D /* LaunchScreen.storyboard in Resources */,
+				A495BEA91EDFC1220007DE3D /* Assets.xcassets in Resources */,
+				A495BEA71EDFC1220007DE3D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5EAF8D46FEF37634D2C712DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYDemo/Pods-RYDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EEA0DB03DA392BADCCA1633 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FB97AE49015A374690895C1B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RYDemo/Pods-RYDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A495BE951EDFC1220007DE3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A495BEA41EDFC1220007DE3D /* ViewController.m in Sources */,
+				A44C8A311EDFEF1B0010FC05 /* RYImageBrowserInnerController.m in Sources */,
+				A44C8A341EDFEF1B0010FC05 /* RYImageBrowserTransitionAnimator.m in Sources */,
+				A495BEA11EDFC1220007DE3D /* AppDelegate.m in Sources */,
+				A44C8A331EDFEF1B0010FC05 /* RYImageBrowserScrollView.m in Sources */,
+				A44C8A321EDFEF1B0010FC05 /* RYImageBrowserPageController.m in Sources */,
+				A44C8A301EDFEF1B0010FC05 /* RYImageBrowser.m in Sources */,
+				A495BE9E1EDFC1220007DE3D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A495BEA51EDFC1220007DE3D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A495BEA61EDFC1220007DE3D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A495BEAA1EDFC1220007DE3D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A495BEAB1EDFC1220007DE3D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A495BEAE1EDFC1230007DE3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A495BEAF1EDFC1230007DE3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A495BEB11EDFC1230007DE3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAF1EDFA197C79852628665D /* Pods-RYDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DE9LJ533VH;
+				INFOPLIST_FILE = RYDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryukiewang.RYDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A495BEB21EDFC1230007DE3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF195E40796EF9520EF82640 /* Pods-RYDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DE9LJ533VH;
+				INFOPLIST_FILE = RYDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryukiewang.RYDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A495BE941EDFC1220007DE3D /* Build configuration list for PBXProject "RYDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A495BEAE1EDFC1230007DE3D /* Debug */,
+				A495BEAF1EDFC1230007DE3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A495BEB01EDFC1230007DE3D /* Build configuration list for PBXNativeTarget "RYDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A495BEB11EDFC1230007DE3D /* Debug */,
+				A495BEB21EDFC1230007DE3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A495BE911EDFC1220007DE3D /* Project object */;
+}
