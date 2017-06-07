@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^RYWebImageDownloaderProgressBlock)(NSInteger receivedSize, NSInteger expectedSize, NSURL *targetURL);
+
 @interface RYImageBrowserInnerController : UIViewController
 
 /**
@@ -18,7 +20,10 @@
  UIImage Obj
  */
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic) CGSize thumbnailsSize;
+//@property (nonatomic) CGSize thumbnailsSize;
+@property (nonatomic, copy) RYWebImageDownloaderProgressBlock progressCallBack;
+@property (nonatomic, copy) RYWebImageDownloaderProgressBlock changeCallBack;
+@property (nonatomic, copy) RYWebImageDownloaderProgressBlock loadedCallBack;
 
 /**
  加载网络图片

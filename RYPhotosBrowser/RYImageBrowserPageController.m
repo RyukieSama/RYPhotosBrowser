@@ -7,7 +7,6 @@
 //
 
 #import "RYImageBrowserPageController.h"
-#import "RYImageBrowserInnerController.h"
 #import "Masonry.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
@@ -177,7 +176,10 @@
         } ImageDo:^(id obj) {
             vc = [RYImageBrowserInnerController innerControllerWithImage:img];
         }];
-        vc.thumbnailsSize = self.thumbnailsSize;
+//        vc.thumbnailsSize = self.thumbnailsSize;
+        vc.progressCallBack = self.progressCallBack;
+        vc.changeCallBack = self.changeCallBack;
+        vc.loadedCallBack = self.loadedCallBack;
         
         [self setViewControllers:@[vc]
                        direction:UIPageViewControllerNavigationDirectionForward
@@ -217,7 +219,10 @@
     } ImageDo:^(id obj) {
         inner = [RYImageBrowserInnerController innerControllerWithImage:imageObj];
     }];
-    inner.thumbnailsSize = self.thumbnailsSize;
+//    inner.thumbnailsSize = self.thumbnailsSize;
+    inner.progressCallBack = self.progressCallBack;
+    inner.changeCallBack = self.changeCallBack;
+    inner.loadedCallBack = self.loadedCallBack;
     return inner ?:nil;
 }
 
@@ -248,7 +253,10 @@
         inner = [RYImageBrowserInnerController innerControllerWithImage:imageObj];
     }];
     
-    inner.thumbnailsSize = self.thumbnailsSize;
+//    inner.thumbnailsSize = self.thumbnailsSize;
+    inner.progressCallBack = self.progressCallBack;
+    inner.changeCallBack = self.changeCallBack;
+    inner.loadedCallBack = self.loadedCallBack;
     return inner ?:nil;
 }
 

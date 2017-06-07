@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.libraries = 'z', 'sqlite3'
 s.dependency "Masonry"
 s.dependency "SDWebImage"
-#s.dependency "SDWebImage/WebP", "3.8.2"
+#s.dependency "SDWebImage/WebP"
 
 end

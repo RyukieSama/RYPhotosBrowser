@@ -14,27 +14,25 @@
 
 @interface RYImageBrowser ()<UIViewControllerTransitioningDelegate>
 
-@property (nonatomic) CGSize thumbnailsSize;
+//@property (nonatomic) CGSize thumbnailsSize;
 @property (nonatomic, copy) showCallBack presentCallBack;
 @property (nonatomic, copy) showCallBack dismissCallBack;
+@property (nonatomic, copy) RYWebImageDownloaderProgressBlock progressCallBack;
+@property (nonatomic, copy) RYWebImageDownloaderProgressBlock changeCallBack;
+@property (nonatomic, copy) RYWebImageDownloaderProgressBlock loadedCallBack;
 
 @end
 
 @implementation RYImageBrowser
 
-+ (void)showBrowserWithImageURLs:(NSArray *)imageURLs thumbnailsSize:(CGSize)size atIndex:(NSInteger)index withPageStyle:(RYImageBrowserPageStyle)style {
-    [self showBrowserWithImageURLs:imageURLs thumbnailsSize:size atIndex:index withPageStyle:style fromImageView:nil];
-}
-
-+ (void)showBrowserWithImageURLs:(NSArray *)imageURLs thumbnailsSize:(CGSize)size atIndex:(NSInteger)index withPageStyle:(RYImageBrowserPageStyle)style fromImageView:(UIView *)imageView {
++ (void)showBrowserWithImageURLs:(NSArray *)imageURLs atIndex:(NSInteger)index withPageStyle:(RYImageBrowserPageStyle)style fromImageView:(UIView *)imageView withProgress:(RYWebImageDownloaderProgressBlock)progress changImage:(RYWebImageDownloaderProgressBlock)changed loadedImage:(RYWebImageDownloaderProgressBlock)loaded {
     if (imageURLs.count <= 0) { //没有图片
         return;
     }
     
     if (!imageView) {//没有指定点击控件
         RYImageBrowser *ib = [[RYImageBrowser alloc] init];
-        ib.thumbnailsSize = size;
-        [ib showBrowserWithURLs:imageURLs thumbnailsSize:size atIndex:index withPageStyle:style];
+        [ib showBrowserWithURLs:imageURLs atIndex:index withPageStyle:style];
         return;
     }
     
@@ -51,7 +49,7 @@
     UIImageView *topImage = [[UIImageView alloc] initWithFrame:imageRect];
     topImage.contentMode = UIViewContentModeScaleAspectFit;
     [backView addSubview:topImage];
-//    topImage.backgroundColor = [UIColor clearColor];
+    //    topImage.backgroundColor = [UIColor clearColor];
     
     CGPoint dismissToCenter = topImage.center;
     
@@ -78,7 +76,9 @@
         topImage.center = backView.center;
     } completion:^(BOOL finished) {
         RYImageBrowser *ib = [[RYImageBrowser alloc] init];
-        ib.thumbnailsSize = size;
+        ib.progressCallBack = progress;
+        ib.changeCallBack = changed;
+        ib.loadedCallBack = loaded;
         ib.presentCallBack = ^(id obj) {
             backView.hidden = YES;
         };
@@ -93,11 +93,19 @@
                 [backView removeFromSuperview];
             }];
         };
-        [ib showBrowserWithURLs:imageURLs thumbnailsSize:size atIndex:index withPageStyle:style];
+        [ib showBrowserWithURLs:imageURLs atIndex:index withPageStyle:style];
     }];
 }
 
-- (void)showBrowserWithURLs:(NSArray *)imageURLs thumbnailsSize:(CGSize)size atIndex:(NSInteger)index withPageStyle:(RYImageBrowserPageStyle)style {
++ (void)showBrowserWithImageURLs:(NSArray *)imageURLs atIndex:(NSInteger)index withPageStyle:(RYImageBrowserPageStyle)style {
+    [self showBrowserWithImageURLs:imageURLs atIndex:index withPageStyle:style fromImageView:nil];
+}
+
++ (void)showBrowserWithImageURLs:(NSArray *)imageURLs atIndex:(NSInteger)index withPageStyle:(RYImageBrowserPageStyle)style fromImageView:(UIView *)imageView {
+    [self showBrowserWithImageURLs:imageURLs atIndex:index withPageStyle:style fromImageView:imageView withProgress:nil changImage:nil loadedImage:nil];
+}
+
+- (void)showBrowserWithURLs:(NSArray *)imageURLs atIndex:(NSInteger)index withPageStyle:(RYImageBrowserPageStyle)style {
     //checkArr    提高容错
     for (id obj in imageURLs) {
         if ([obj isKindOfClass:[NSString class]] || [obj isKindOfClass:[UIImage class]]) {
@@ -111,12 +119,15 @@
     RYImageBrowserPageController *vc = [[RYImageBrowserPageController alloc] init];
     //大图
     vc.images = imageURLs;
-    vc.thumbnailsSize = self.thumbnailsSize;
+    //在设置分页前先设置回调
+    vc.dismissCallBack = self.dismissCallBack;
+    vc.progressCallBack = self.progressCallBack;
+    vc.changeCallBack = self.changeCallBack;
+    vc.loadedCallBack = self.loadedCallBack;
     //当前页数
     vc.pageIndex = (index>=0 && index < imageURLs.count) ? index : 0;
     //持有一下它防止在dimiss之前被释放掉导致自定义的专场动画的代理没有了
     vc.browser = self;
-    vc.dismissCallBack = self.dismissCallBack;
     
     //设置分页样式
     if (style > 99) {

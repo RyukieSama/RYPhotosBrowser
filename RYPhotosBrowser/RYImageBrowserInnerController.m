@@ -52,6 +52,17 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    //隐藏HUD
+    if (self.changeCallBack) {
+        self.changeCallBack(0, 0, nil);
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (self.loadedCallBack) {
+        self.loadedCallBack(0, 0, nil);
+    }
 }
 
 - (void)viewWillLayoutSubviews {
@@ -64,7 +75,7 @@
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        //        [self.scrollView updateZoomScalesAndZoom:YES];
+//        [self.scrollView updateZoomScalesAndZoom:YES];
     } completion:nil];
 }
 
@@ -120,12 +131,12 @@
         return;
     }
     else {
-        //2: 再看有没有缓存缩略图
-        UIImage *thumbnails = [self getCachedImage:self.imageURL withSize:self.thumbnailsSize];
-        if (thumbnails) {
-            //已经缓存了缩略图就展示  没有就不展示
-            self.ivPre.image = thumbnails;
-        }
+//        //2: 再看有没有缓存缩略图
+//        UIImage *thumbnails = [self getCachedImage:self.imageURL withSize:self.thumbnailsSize];
+//        if (thumbnails) {
+//            //已经缓存了缩略图就展示  没有就不展示
+//            self.ivPre.image = thumbnails;
+//        }
         
         //否则就下载
         __weak typeof(self)weakSelf = self;
@@ -138,7 +149,10 @@
                                                               options:0
                                                              progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
                                                                  __strong __typeof(weakSelf)strongSelf = weakSelf;
-                                                                 [strongSelf showHUD];
+//                                                                 [strongSelf showHUD];
+                                                                 if (strongSelf.progressCallBack) {
+                                                                     strongSelf.progressCallBack(receivedSize, expectedSize, targetURL);
+                                                                 }
                                                              }
                                                             completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
                                                                 __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -148,8 +162,8 @@
                                                                 }
                                                                 
                                                                 if (error) {
-                                                                    [strongSelf dismissHUD];
-                                                                    [strongSelf showErrorHUD];
+//                                                                    [strongSelf dismissHUD];
+//                                                                    [strongSelf showErrorHUD];
                                                                 } else {
                                                                     [[SDWebImageManager sharedManager] saveImageToCache:image forURL:imageURL];
                                                                     [strongSelf setImageForScrollView:image];
@@ -170,17 +184,17 @@
 
 - (UIImage *)getCachedImage:(NSString *)URLString withSize:(CGSize)size {
     NSURL *URL = [NSURL URLWithString:URLString];
-    //    从缓存中取
-    //    if ([[SDWebImageManager sharedManager] diskImageExistsForURL:URL]) {
-    //        return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[URL absoluteString]];
-    //    }
+//    从缓存中取
+//    if ([[SDWebImageManager sharedManager] diskImageExistsForURL:URL]) {
+//        return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[URL absoluteString]];
+//    }
     return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[URL absoluteString]];
 }
 
 - (NSInteger)checkImageCache:(NSURL *)URL {
-    //    [[SDWebImageManager sharedManager] cachedImageExistsForURL:URL];
-    //
-    //    [[SDWebImageManager sharedManager] diskImageExistsForURL:URL];
+//    [[SDWebImageManager sharedManager] cachedImageExistsForURL:URL];
+//    
+//    [[SDWebImageManager sharedManager] diskImageExistsForURL:URL];
     
     return 1;
 }
@@ -188,9 +202,12 @@
 - (void)setImageForScrollView:(UIImage *)image {
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [weakSelf dismissHUD];
+//        [weakSelf dismissHUD];
         [weakSelf.ivPre removeFromSuperview];
         weakSelf.scrollView.image = image;
+        if (weakSelf.loadedCallBack) {
+            weakSelf.loadedCallBack(0, 0, nil);
+        }
     });
 }
 
