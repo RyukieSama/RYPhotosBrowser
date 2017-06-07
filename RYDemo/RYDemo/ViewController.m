@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "Masonry.h"
-#import "RYLabelCollection.h"
+#import <Masonry.h>
+#import "RYImageBrowser.h"
+#import <UIButton+WebCache.h>
 
 @interface ViewController ()
 
 @property (nonatomic, strong) UIView *viewOne;
+@property (nonatomic, strong) NSArray *images;
 
 @end
 
@@ -21,6 +23,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.images = @[
+                    @"http://ohfpqyfi7.bkt.clouddn.com/14962186443463.png",
+                    @"http://ohfpqyfi7.bkt.clouddn.com/14962198828930.png",
+                    @"http://ohfpqyfi7.bkt.clouddn.com/14962200654350.png",
+                    @"http://ohfpqyfi7.bkt.clouddn.com/14962202375596.png",
+                    @"http://ohfpqyfi7.bkt.clouddn.com/14962202549313.png",
+                    [UIImage imageNamed:@"Simulator Screen Shot 2017年5月27日 下午4.21.22"]
+                    ];
     [self setupUI];
 }
 
@@ -28,41 +38,31 @@
     self.viewOne = [[UIView alloc] init];
     self.viewOne.backgroundColor = [UIColor cyanColor];
     
-    RYLabelCollection *labelCollection = [[RYLabelCollection alloc] init];
-//    labelCollection.textColor = [UIColor redColor];
-    labelCollection.borderColor = [UIColor redColor];
-    labelCollection.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
-    labelCollection.itemSpace = 10;
-    labelCollection.itemHeight = 16;
-    labelCollection.font = [UIFont systemFontOfSize:11];
-    labelCollection.maxWidth = [UIScreen mainScreen].bounds.size.width;
-    
-    labelCollection.textColorArr = @[
-                                     [UIColor redColor],
-                                     [UIColor whiteColor]
-                                     ];
-    
-    labelCollection.labels = @[
-                               @"asdfafdadfasdfasf",
-                               @"asdf",
-                               @"asdfa",
-                               @"kjnlkjnlkkljnl",
-                               @"alkjsldknjlknfgjbnkjnsdc",
-                               @"jinytinade de ad",
-                               @"asdasdasdad"
-                               ];
-    
-    [self.view addSubview:self.viewOne];
-    [self.viewOne mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(40);
-    }];
-    [self.viewOne addSubview:labelCollection];
-    [labelCollection mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
+    NSInteger count = -1;
+    for (id img in self.images) {
+        count++;
+        UIButton *bt = [[UIButton alloc] initWithFrame:CGRectMake(0, count * 100, 60, 100)];
+        [self.view addSubview:bt];
+        if ([img isKindOfClass:[UIImage class]]) {
+            [bt setImage:img forState:UIControlStateNormal];
+        } else if ([img isKindOfClass:[NSString class]]) {
+            [bt sd_setImageWithURL:[NSURL URLWithString:img] forState:UIControlStateNormal];
+        }
+        [bt addTarget:self action:@selector(shiowImage:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
 }
+
+- (void)shiowImage:(UIButton *)button {
+    [RYImageBrowser showBrowserWithImageURLs:self.images atIndex:0 withPageStyle:RYImageBrowserPageStyleAuto fromImageView:button withProgress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL *targetURL) {
+        
+    } changImage:^(NSInteger receivedSize, NSInteger expectedSize, NSURL *targetURL) {
+        
+    } loadedImage:^(NSInteger receivedSize, NSInteger expectedSize, NSURL *targetURL) {
+        
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

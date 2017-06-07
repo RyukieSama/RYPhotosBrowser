@@ -1,20 +1,17 @@
 PODS:
   - Masonry (1.0.2)
-  - RYLabelCollection (0.0.1):
-    - Masonry
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
-  - RYLabelCollection
+  - Masonry
   - SDWebImage
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  RYLabelCollection: 2cc6d07cbbf7650c797aefa7525fa819d1ab4d1a
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 61e0815d8f0c06d361e903b979b5697e9d310092
+PODFILE CHECKSUM: 8624c9722e121c5c928bc2e148e5a4b6759c6fbf
 
 COCOAPODS: 1.2.0

@@ -47,6 +47,10 @@
     return self;
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 #pragma mark - NOTIFICATION
 - (void)addNotificationOB {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(borwersOneClick:) name:kRYImageBrowserOneClick object:nil];
@@ -71,7 +75,7 @@
 - (void)borwersOneClick:(NSNotification *)noti {
     [[SDWebImageDownloader sharedDownloader] cancelAllDownloads];
 //    [RYCustomHUD dismiss];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     
     if (self.dismissCallBack) {
         self.dismissCallBack(nil);
@@ -104,7 +108,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     //解决可能出现的第一次进来序号点点错误的问题
     [self updateIndex:[self.images indexOfObject:self.currentImage] +1];
 }
