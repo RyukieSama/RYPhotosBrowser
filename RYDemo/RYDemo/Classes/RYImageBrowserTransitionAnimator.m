@@ -1,6 +1,6 @@
 //
 //  RYImageBrowserTransitionAnimator.m
-//  RYPhotosBrowser
+//  RYImageBrowser
 //
 //  Created by RongqingWang on 16/11/25.
 //

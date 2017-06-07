@@ -1,13 +1,15 @@
 //
 //  RYImageBrowserPageController.h
-//  RYPhotosBrowser
+//  RYImageBrowser
 //
 //  Created by RongqingWang on 16/11/4.
-//  Copyright © 2016年 RongqingWang. All rights reserved.
+//  Copyright © 2016年 RyukieSama. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "RYImageBrowser.h"
+
+typedef void(^showCallBack)(id obj);
 
 @interface RYImageBrowserPageController : UIPageViewController
 
@@ -31,6 +33,7 @@
  防止RYImageBrowser被释放掉
  */
 @property (nonatomic, strong) RYImageBrowser *browser;
+@property (nonatomic, copy) showCallBack dismissCallBack;
 @property (nonatomic) CGSize thumbnailsSize;
 
 #pragma mark - NOTI

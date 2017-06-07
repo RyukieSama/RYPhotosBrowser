@@ -1,9 +1,9 @@
 //
 //  RYImageBrowserScrollView.m
-//  RYPhotosBrowser
+//  RYImageBrowser
 //
 //  Created by RongqingWang on 16/11/4.
-//  Copyright © 2016年 RongqingWang. All rights reserved.
+//  Copyright © 2016年 RyukieSama. All rights reserved.
 //
 
 #import "RYImageBrowserScrollView.h"
@@ -103,37 +103,56 @@
 }
 
 - (void)saveImageWithLongPress {
-    __weak typeof(self)weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     if (self.isAlertShowed == YES) {
         return;
     }
     self.isAlertShowed = YES;
-//    [RYActionSheet showActionSheetWithTitle:nil message:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"保存图片"] clicked:^(NSInteger buttonIndex) {
-//        __strong __typeof(weakSelf)strongSelf = weakSelf;
-//        if (buttonIndex == 0) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                // 更新界面
-//                [RYCustomHUD showWithStyle:RYHUDStyleLoadingPic maskType:RYHUDMaskTypeNone inView:self];
-//            });
-//            
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                // 耗时的操作
-//                UIImageWriteToSavedPhotosAlbum(strongSelf.imageView.image, strongSelf, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-//            });
-//        }
-//        else {
-//            strongSelf.isAlertShowed = NO;
-//        }
-//    }];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否保存图片到系统相册?" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *acCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        weakSelf.isAlertShowed = NO;
+        [alert dismissViewControllerAnimated:YES completion:^{
+        }];
+    }];
+    UIAlertAction *acDone = [UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        weakSelf.isAlertShowed = NO;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // 耗时的操作
+            UIImageWriteToSavedPhotosAlbum(weakSelf.imageView.image, weakSelf, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+        });
+    }];
+    [alert addAction:acCancle];
+    [alert addAction:acDone];
+    
+    [self.vc presentViewController:alert animated:YES completion:^{
+        
+    }];
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.isAlertShowed = NO;
-        if (error) {
-//            [RYCustomHUD showInfoWithStatus:@"保存失败" detailText:nil inView:self];
-        }   else {
-//            [RYCustomHUD showSuccessWithStatus:@"保存成功" detailText:nil inView:self];
+        if (!error) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"保存成功!" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *acCancle = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [alert dismissViewControllerAnimated:YES completion:^{
+                }];
+            }];
+            [alert addAction:acCancle];
+            [self.vc presentViewController:alert animated:YES completion:^{
+                
+            }];
+        }  else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"保存失败!" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *acCancle = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [alert dismissViewControllerAnimated:YES completion:^{
+                }];
+            }];
+            [alert addAction:acCancle];
+            [self.vc presentViewController:alert animated:YES completion:^{
+                
+            }];
         }
     });
 }

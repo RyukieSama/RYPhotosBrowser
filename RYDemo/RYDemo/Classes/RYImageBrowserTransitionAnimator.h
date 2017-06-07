@@ -1,12 +1,12 @@
 //
 //  RYImageBrowserTransitionAnimator.h
-//  RYPhotosBrowser
+//  RYImageBrowser
 //
 //  Created by RongqingWang on 16/11/25.
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface RYImageBrowserTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 

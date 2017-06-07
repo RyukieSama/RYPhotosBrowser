@@ -1,9 +1,9 @@
 //
 //  RYImageBrowserInnerController.h
-//  RYPhotosBrowser
+//  RYImageBrowser
 //
 //  Created by RongqingWang on 16/11/4.
-//  Copyright © 2016年 RongqingWang. All rights reserved.
+//  Copyright © 2016年 RyukieSama. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -25,7 +25,6 @@
  
  @param imageURL 网络图片URL
  
- @return
  */
 + (instancetype)innerControllerWithImageURL:(NSString *)imageURL;
 
@@ -34,7 +33,6 @@
  
  @param image UIImage
  
- @return
  */
 + (instancetype)innerControllerWithImage:(UIImage *)image;
 

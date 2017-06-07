@@ -64,7 +64,7 @@
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-//        [self.scrollView updateZoomScalesAndZoom:YES];
+        //        [self.scrollView updateZoomScalesAndZoom:YES];
     } completion:nil];
 }
 
@@ -136,7 +136,7 @@
         [self showHUD];
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:imageURL
                                                               options:0
-                                                             progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                                             progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
                                                                  __strong __typeof(weakSelf)strongSelf = weakSelf;
                                                                  [strongSelf showHUD];
                                                              }
@@ -170,17 +170,17 @@
 
 - (UIImage *)getCachedImage:(NSString *)URLString withSize:(CGSize)size {
     NSURL *URL = [NSURL URLWithString:URLString];
-//    从缓存中取
-//    if ([[SDWebImageManager sharedManager] diskImageExistsForURL:URL]) {
-//        return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[URL absoluteString]];
-//    }
+    //    从缓存中取
+    //    if ([[SDWebImageManager sharedManager] diskImageExistsForURL:URL]) {
+    //        return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[URL absoluteString]];
+    //    }
     return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[URL absoluteString]];
 }
 
 - (NSInteger)checkImageCache:(NSURL *)URL {
-//    [[SDWebImageManager sharedManager] cachedImageExistsForURL:URL];
-//    
-//    [[SDWebImageManager sharedManager] diskImageExistsForURL:URL];
+    //    [[SDWebImageManager sharedManager] cachedImageExistsForURL:URL];
+    //
+    //    [[SDWebImageManager sharedManager] diskImageExistsForURL:URL];
     
     return 1;
 }

@@ -1,20 +1,18 @@
 //
 //  RYImageBrowserInnerController.m
-//  RYPhotosBrowser
+//  RYImageBrowser
 //
 //  Created by RongqingWang on 16/11/4.
-//  Copyright © 2016年 RongqingWang. All rights reserved.
+//  Copyright © 2016年 RyukieSama. All rights reserved.
 //
 
 #import "RYImageBrowserInnerController.h"
 #import "RYImageBrowserScrollView.h"
-#import <SDWebImageManager.h>
-#import <Masonry.h>
+#import "SDWebImageManager.h"
+#import "Masonry.h"
 #import "RYImageBrowserPageController.h"
 
 #define PREVIEW_IV_WIDTH 100
-
-static BOOL useHTTPS = YES;
 
 @interface RYImageBrowserInnerController ()
 
@@ -66,7 +64,7 @@ static BOOL useHTTPS = YES;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        [self.scrollView updateZoomScalesAndZoom:YES];
+        //        [self.scrollView updateZoomScalesAndZoom:YES];
     } completion:nil];
 }
 
@@ -90,6 +88,7 @@ static BOOL useHTTPS = YES;
     
     RYImageBrowserScrollView *scrollView = [[RYImageBrowserScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.scrollView = scrollView;
+    self.scrollView.vc = self;
     [self.view addSubview:self.scrollView];
     
     [self.view layoutIfNeeded];
@@ -132,17 +131,16 @@ static BOOL useHTTPS = YES;
         __weak typeof(self)weakSelf = self;
         
         NSString *imageURLString = self.imageURL;
-        //支持Webp
-        NSURL *imageURL = [RYWebImageHelper imageStringToURL:imageURLString width:0 height:0];
+        NSURL *imageURL = [NSURL URLWithString:imageURLString];
         
         [self showHUD];
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:imageURL
                                                               options:0
-                                                             progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                                             progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
                                                                  __strong __typeof(weakSelf)strongSelf = weakSelf;
                                                                  [strongSelf showHUD];
                                                              }
-                                                            completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                                                            completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
                                                                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                                                                 
                                                                 if (!finished) {
@@ -171,18 +169,18 @@ static BOOL useHTTPS = YES;
 }
 
 - (UIImage *)getCachedImage:(NSString *)URLString withSize:(CGSize)size {
-    NSURL *URL = [RYWebImageHelper imageStringToURL:URLString width:size.width height:size.height];
-    //从缓存中取
-    if ([[SDWebImageManager sharedManager] diskImageExistsForURL:URL]) {
-        return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[URL absoluteString]];
-    }
-    return nil;
+    NSURL *URL = [NSURL URLWithString:URLString];
+    //    从缓存中取
+    //    if ([[SDWebImageManager sharedManager] diskImageExistsForURL:URL]) {
+    //        return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[URL absoluteString]];
+    //    }
+    return [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[URL absoluteString]];
 }
 
 - (NSInteger)checkImageCache:(NSURL *)URL {
-    [[SDWebImageManager sharedManager] cachedImageExistsForURL:URL];
-    
-    [[SDWebImageManager sharedManager] diskImageExistsForURL:URL];
+    //    [[SDWebImageManager sharedManager] cachedImageExistsForURL:URL];
+    //
+    //    [[SDWebImageManager sharedManager] diskImageExistsForURL:URL];
     
     return 1;
 }
