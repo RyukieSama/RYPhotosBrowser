@@ -31,7 +31,7 @@ pod 'RYPhotosBrowser'
 
 * 渐变放大
 
-![](http://ohfpqyfi7.bkt.clouddn.com/14968910259777.gif)
+![](http://ohfpqyfi7.bkt.clouddn.com/14968935108832.gif)
 
 ``` swift
 [RYImageBrowser showBrowserWithImageURLs:arr atIndex:[obj integerValue] withPageStyle:RYImageBrowserPageStyleAuto];
@@ -89,4 +89,5 @@ typedef NS_ENUM(NSInteger, RYImageBrowserPageStyle) {
  */
 + (void)showBrowserWithImageURLs:(NSArray *)imageURLs atIndex:(NSInteger)index withPageStyle:(RYImageBrowserPageStyle)style fromImageView:(UIView *)imageView withProgress:(RYWebImageDownloaderProgressBlock)progress changImage:(RYWebImageDownloaderProgressBlock)changed loadedImage:(RYWebImageDownloaderProgressBlock)loaded;
 ```
+
 
