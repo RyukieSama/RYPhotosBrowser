@@ -1,18 +1,32 @@
 # RYPhotosBrowser
 
-## 亮点
+## 亮点 (Functions)
 >可高度自定义的图片浏览控件
+>
 >支持多种图片传入类型:  `本地文件路径` `网络图片NSString`  `UIImage对象`或`者三者混合`
+>
 >基于SDWebImage4.0
->可自定义加载阶段HUD
+>
+>可自定义加载各阶段HUD
 
-## 导入方式
+***
+
+>Custom config
+>
+>Support images such as `Local image path` `WebImageURLString` `UIImage` or `Three Mixed`
+>
+>SDWebImage 4.0
+>
+>Custom HUD
+
+## 导入 (Install)
 iOS 9+
 pod 'RYPhotosBrowser'
 
 ## 两种弹出姿势
 
 * 从图片容器放大恢复
+* Enlarged from origin
 
 ![](http://ohfpqyfi7.bkt.clouddn.com/14968906918877.gif)
 
@@ -30,6 +44,7 @@ pod 'RYPhotosBrowser'
 ```
 
 * 渐变放大
+* Fade
 
 ![](http://ohfpqyfi7.bkt.clouddn.com/14968935108832.gif)
 
@@ -37,7 +52,7 @@ pod 'RYPhotosBrowser'
 [RYImageBrowser showBrowserWithImageURLs:arr atIndex:[obj integerValue] withPageStyle:RYImageBrowserPageStyleAuto];
 ```
 
-## 设置分页样式
+## 设置分页样式(PageStyle)
 ``` swift
 typedef NS_ENUM(NSInteger, RYImageBrowserPageStyle) {
     /**
@@ -55,7 +70,7 @@ typedef NS_ENUM(NSInteger, RYImageBrowserPageStyle) {
 };
 ```
 
-## 调用方法
+## 调用方法(Function)
 ``` swift
 /**
  show   自定义分页样式
